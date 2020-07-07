@@ -29,7 +29,7 @@ const GradeList = () => {
 
   const refreshList = () => {
     retrieveGrade();
-    setCurrentGrade(null);
+    setCurrentGrade({});
     setCurrentIndex(-1);
   };
 
@@ -88,6 +88,7 @@ const GradeList = () => {
         <ul className="list-group">
           {console.log(grade)}
           {grade &&
+            Array.isArray(grade) &&
             grade.map((grade, index) => {
               return (
                 <li
