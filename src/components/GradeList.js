@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const GradeList = () => {
   const [grade, setGrade] = useState([]);
-  const [currentGrade, setCurrentGrade] = useState(null);
+  const [currentGrade, setCurrentGrade] = useState({});
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [searchName, setSearchName] = useState('');
 
@@ -86,18 +86,22 @@ const GradeList = () => {
         <h4>Grade List</h4>
 
         <ul className="list-group">
+          {console.log(grade)}
           {grade &&
-            grade.map((grade, index) => (
-              <li
-                className={
-                  'list-group-item ' + (index === currentIndex ? 'active' : '')
-                }
-                onClick={() => setActiveGrade(grade, index)}
-                key={index}
-              >
-                {grade.name}
-              </li>
-            ))}
+            grade.map((grade, index) => {
+              return (
+                <li
+                  className={
+                    'list-group-item ' +
+                    (index === currentIndex ? 'active' : '')
+                  }
+                  onClick={() => setActiveGrade(grade, index)}
+                  key={index}
+                >
+                  {grade.name}
+                </li>
+              );
+            })}
         </ul>
 
         <button className="m-3 btn btn-sm btn-danger" onClick={removeAllGrade}>
