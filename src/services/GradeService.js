@@ -25,6 +25,7 @@ const removeAll = () => {
 };
 
 const findByName = (name) => {
+  console.log(`/grade?name=${name}`);
   return http.get(`/grade?name=${name}`);
 };
 
